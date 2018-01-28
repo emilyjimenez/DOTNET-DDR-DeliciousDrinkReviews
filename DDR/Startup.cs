@@ -33,7 +33,7 @@ namespace DDR
             services.AddEntityFrameworkMySql()
                     .AddDbContext<ApplicationDbContext>(options =>
                                                        options
-                                                        .UseMySql(Configuration["ConnectionsStrings:DefaultConnection"]));
+                                                        .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();

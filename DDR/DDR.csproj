@@ -16,6 +16,7 @@
     <Folder Include="wwwroot\img\" />
     <Folder Include="Views\Blog\" />
     <Folder Include="Views\Admin\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -14,8 +14,9 @@ namespace DDR.Models
         public string Content { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
 
-        public EmptyClass()
+        public Post()
         {
+            
         }
     }
 }
