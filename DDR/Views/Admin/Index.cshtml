@@ -7,19 +7,22 @@
 
 <h2>Admin Tools</h2>
 
+@using System.Security.Claims
+
 @if (User.Identity.IsAuthenticated)
 {
     <p>Hello @User.Identity.Name!</p>
-    @using (Html.BeginForm("LogOff", "Admin"))
+    using (Html.BeginForm("LogOff", "Admin"))
     {
-        <input type="submit" value="Log out" /
+        <input type="submit" value="Log out" />
     }
 }
+
 else
 {
     <p>@Html.ActionLink("Register", "Register")</p>
     <p>@Html.ActionLink("Login", "Login")</p>
 }
 
-    YAY!
-
+<p>@Html.ActionLink("Go Back", "Index", "Home")</p>
+<p>@Html.ActionLink("Blog Portal", "Index", "Blog")</p>

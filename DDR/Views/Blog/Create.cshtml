@@ -1,0 +1,25 @@
+﻿@model DDR.Models.Post
+
+@{
+
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+
+}
+
+
+<h1>Add Post</h1>
+
+<div class="create-post">
+@using (Html.BeginForm())
+{
+        @Html.LabelFor(model => model.Title)
+        @Html.TextBoxFor(model => model.Title)
+
+        @Html.TextAreaFor(model => model.Content)
+
+        <input type="submit" value="Create Post" />
+}
+</div>
+
+<p>@Html.ActionLink("Go Back", "Index", "Blog")</p>

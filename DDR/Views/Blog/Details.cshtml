@@ -1,0 +1,20 @@
+﻿@model DDR.Models.Post
+
+@{
+
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+
+}
+
+
+<h1>@Html.DisplayFor(model => Model.Title)</h1>
+
+
+   <p>@Html.DisplayFor(model => Model.Content)</p>
+    <p>[DELETE POST] [EDIT POST]</p>
+    <p>[COMMENT]</p>
+    .
+
+<p>@Html.ActionLink("Add Post", "Create", "Blog")</p>
+<p>@Html.ActionLink("Go Back", "Index", "Home")</p>

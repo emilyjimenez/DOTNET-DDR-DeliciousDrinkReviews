@@ -1,8 +1,26 @@
-﻿@{
+﻿@model IEnumerable<DDR.Models.Post>
+
+@{
 
     ViewData["Title"] = "Home";
     Layout = "_Layout";
 
 }
 
-<h1>blog stuff here</h1>>
+
+<h1>Blog Posts</h1>
+
+.
+@foreach (var post in Model)
+{
+
+    <ul>
+    <li><h3>@Html.DisplayFor(modelpost => @post.Title)</h3></li>
+    <p>@Html.ActionLink("Details", "Details", "Blog", new { PostId = @post.PostId})</p>
+    <p>[DELETE POST] [EDIT POST]</p>
+    <p>[COMMENT]</p>
+    </ul>
+}
+
+<p>@Html.ActionLink("Add Post", "Create", "Blog")</p>
+<p>@Html.ActionLink("Go Back", "Index", "Home")</p>
