@@ -13,6 +13,7 @@ namespace DDR.Models
         public string Title { get; set; }
         public string Content { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ApplicationUser User { get; set; }
 
         public Post()
         {
