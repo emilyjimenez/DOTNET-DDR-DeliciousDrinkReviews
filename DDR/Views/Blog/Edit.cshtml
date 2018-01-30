@@ -1,0 +1,26 @@
+﻿@model DDR.Models.Post
+
+@{
+
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+
+}
+
+
+<h1>Edit Post</h1>
+
+<div class="edit-post">
+@using (Html.BeginForm())
+{
+        @Html.HiddenFor()
+        @Html.LabelFor(model => model.Title)
+        @Html.TextBoxFor(model => model.Title)
+
+        @Html.TextAreaFor(model => model.Content)
+
+        <input type="submit" value="Edit Post" />
+}
+</div>
+
+<p>@Html.ActionLink("Go Back", "Index", "Blog")</p>

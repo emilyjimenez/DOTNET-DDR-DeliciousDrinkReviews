@@ -1,0 +1,21 @@
+﻿@model DDR.Models.Post
+
+@{
+
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+
+}
+
+
+<h1>Are you sure you want to delete your post?</h1>
+
+<div class="delete-post">
+@using (Html.BeginForm())
+{
+   
+        <input type="submit" value="Delete" />
+}
+</div>
+
+<p>@Html.ActionLink("Go Back", "Index", "Blog")</p>

@@ -58,10 +58,43 @@ namespace DDR.Controllers
 
         }
 
+        public IActionResult Delete(int id)
+        {
+            Post thisPost = _db.Posts.FirstOrDefault(x => x.PostId == id);
+            return View(thisPost);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            Post thisPost = _db.Posts.FirstOrDefault(x => x.PostId == id);
+            _db.Remove(thisPost);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public IActionResult CreateComment(int id)
         {
             CommentOnPost commentonpost = new CommentOnPost(id);
             return View(commentonpost);
+        }
+
+        public IActionResult Edit(int id)
+        {
+            Post thisPost = _db.Posts.FirstOrDefault(x => x.PostId == id);
+            return View(thisPost);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Post thisPost)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(userId);
+            _db.Entry(thisPost).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
