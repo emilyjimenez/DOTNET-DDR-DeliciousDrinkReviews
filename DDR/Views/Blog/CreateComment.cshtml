@@ -1,4 +1,4 @@
-﻿
+﻿@model DDR.ViewModels.CommentOnPost
 
 @{
 
@@ -9,3 +9,19 @@
 
 
 <h1>Add Comment</h1>
+
+<div class="create-comment">
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.CurrentPostId)
+    
+    @Html.LabelFor(model => model.UserName)
+    @Html.TextBoxFor(model => model.UserName)
+
+    @Html.TextAreaFor(model => model.Content)
+
+        <input type="submit" value="Create comment" />
+}
+</div>
+
+<p>@Html.ActionLink("Go Back", "Index", "Blog")</p>

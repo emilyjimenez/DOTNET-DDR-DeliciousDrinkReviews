@@ -18,7 +18,6 @@ namespace DDR.ViewModels
             CurrentPostId = PostId;
         }
 
-
         public CommentOnPost()
         {
         }

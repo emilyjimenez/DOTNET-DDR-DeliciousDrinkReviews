@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 using DDR.Models;
 using DDR.ViewModels;
@@ -56,17 +58,25 @@ namespace DDR.Controllers
 
         }
 
-        public IActionResult CreateComment()
+        public IActionResult CreateComment(int id)
         {
-            return View();
+            CommentOnPost commentonpost = new CommentOnPost(id);
+            return View(commentonpost);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateComment(Comment newComment)
+        public IActionResult CreateComment(CommentOnPost comment)
         {
-           
-            return RedirectToAction("Index");
+            Comment newComment = new Comment();
+            newComment.CommentId = comment.CommentId;
+            newComment.UserName = comment.UserName;
+            newComment.Content = comment.Content;
+            newComment.PostId = comment.CurrentPostId;
 
+            _db.Comments.Add(newComment);
+            _db.SaveChanges();
+
+            return RedirectToAction("Details", "Blog", new { id = comment.CurrentPostId});
         }
     }
 }
