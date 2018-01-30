@@ -22,7 +22,7 @@ namespace DDR.Controllers
         private readonly ApplicationDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public BlogController (UserManager<ApplicationUser> userManager, ApplicationDbContext db)
+        public BlogController(UserManager<ApplicationUser> userManager, ApplicationDbContext db)
         {
             _userManager = userManager;
             _db = db;
@@ -35,7 +35,7 @@ namespace DDR.Controllers
 
         public IActionResult Details(int id)
         {
-            var model= _db.Posts
+            var model = _db.Posts
                            .Include(p => p.Comments)
                            .FirstOrDefault(posts => posts.PostId == id);
             return View(model);
@@ -75,12 +75,6 @@ namespace DDR.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult CreateComment(int id)
-        {
-            CommentOnPost commentonpost = new CommentOnPost(id);
-            return View(commentonpost);
-        }
-
         public IActionResult Edit(int id)
         {
             Post thisPost = _db.Posts.FirstOrDefault(x => x.PostId == id);
@@ -97,6 +91,12 @@ namespace DDR.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult CreateComment(int id)
+        {
+            CommentOnPost commentonpost = new CommentOnPost(id);
+            return View(commentonpost);
+        }
+
         [HttpPost]
         public IActionResult CreateComment(CommentOnPost comment)
         {
@@ -109,7 +109,17 @@ namespace DDR.Controllers
             _db.Comments.Add(newComment);
             _db.SaveChanges();
 
-            return RedirectToAction("Details", "Blog", new { id = comment.CurrentPostId});
+            return RedirectToAction("Details", "Blog", new { id = comment.CurrentPostId });
+        }
+
+        [HttpPost, ActionName("DeleteComment")]
+        public IActionResult DeleteComment(int id)
+        {
+            Comment thisComment = _db.Comments.FirstOrDefault(x => x.CommentId == id);
+            _db.Comments.Remove(thisComment);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

@@ -13,7 +13,7 @@
 <div class="edit-post">
 @using (Html.BeginForm())
 {
-        @Html.HiddenFor()
+        @Html.HiddenFor(model => model.PostId)
         @Html.LabelFor(model => model.Title)
         @Html.TextBoxFor(model => model.Title)
 
