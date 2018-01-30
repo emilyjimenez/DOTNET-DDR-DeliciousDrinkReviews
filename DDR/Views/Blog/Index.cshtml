@@ -10,13 +10,11 @@
 
 <h1>Blog Posts</h1>
 
-.
 @foreach (var post in Model)
 {
 
     <ul>
-    <li><h3>@Html.DisplayFor(modelpost => @post.Title)</h3></li>
-    <p>@Html.ActionLink("Details", "Details", "Blog", new { PostId = @post.PostId})</p>
+    <li><h3>@Html.DisplayFor(modelpost => @post.Title) , @Html.ActionLink("Details", "Details", "Blog", new { id = @post.PostId})</h3></li>
     <p>[DELETE POST] [EDIT POST]</p>
     <p>[COMMENT]</p>
     </ul>

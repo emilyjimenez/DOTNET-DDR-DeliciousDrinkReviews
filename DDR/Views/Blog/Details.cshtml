@@ -8,13 +8,19 @@
 }
 
 
-<h1>@Html.DisplayFor(model => Model.Title)</h1>
+<h1>@Html.DisplayFor(m => Model.Title)</h1>
+<p>@Html.DisplayFor(m => Model.Content)</p>
+
+<br />
+<h4>Comments</h4>
+@foreach (var comment in Model.Comments)
+{
+<ul>
+    <li><b>@Html.DisplayFor(c => comment.UserName)</b> wrote, <i>"@Html.DisplayFor(c => comment.Content)"</i></li>
+</ul>
+
+}
 
 
-   <p>@Html.DisplayFor(model => Model.Content)</p>
-    <p>[DELETE POST] [EDIT POST]</p>
-    <p>[COMMENT]</p>
-    .
-
-<p>@Html.ActionLink("Add Post", "Create", "Blog")</p>
+<p>@Html.ActionLink("Add Comment", "CreateComment", "Blog")</p>
 <p>@Html.ActionLink("Go Back", "Index", "Home")</p>

@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using DDR.Models;
+using DDR.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
@@ -31,7 +33,8 @@ namespace DDR.Controllers
 
         public IActionResult Details(int id)
         {
-            var model = _db.Posts.Include(p => p.Comments)
+            var model= _db.Posts
+                           .Include(p => p.Comments)
                            .FirstOrDefault(posts => posts.PostId == id);
             return View(model);
         }
@@ -49,6 +52,19 @@ namespace DDR.Controllers
             newPost.User = currentUser;
             _db.Posts.Add(newPost);
             _db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+        public IActionResult CreateComment()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateComment(Comment newComment)
+        {
+           
             return RedirectToAction("Index");
 
         }
