@@ -17,12 +17,16 @@
     <ul>
     <li><b>@Html.DisplayFor(c => comment.UserName)</b> wrote, <i>"@Html.DisplayFor(c => comment.Content)"</i></li>
     </ul>
-        <form method="post" action="@Url.Action("DeleteComment")">
-        <input type="hidden" value="@comment.CommentId" />
+        @using(Html.BeginForm("DeleteComment", "Blog", FormMethod.Post))
+        {
+        <input type="hidden" name="id" value=@comment.CommentId />
         <button type="submit">Delete Comment</button>
-        </form>
-}
-.
 
+        }
+        
+      
+}
+
+.
 <p>@Html.ActionLink("Add Comment", "CreateComment", "Blog", new { id = Model.PostId})</p>
 <p>@Html.ActionLink("Go Back", "Index", "Home")</p>

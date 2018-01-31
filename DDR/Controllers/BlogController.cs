@@ -112,7 +112,7 @@ namespace DDR.Controllers
             return RedirectToAction("Details", "Blog", new { id = comment.CurrentPostId });
         }
 
-        [HttpPost, ActionName("DeleteComment")]
+        [HttpPost]
         public IActionResult DeleteComment(int id)
         {
             Comment thisComment = _db.Comments.FirstOrDefault(x => x.CommentId == id);
