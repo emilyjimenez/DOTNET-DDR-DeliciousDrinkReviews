@@ -9,21 +9,13 @@
 
 ## Description
 
-_Stuff._
+_MVC Web about for a drink review site._
 
 ## Notes for Epicodus Staff on Requirements
 
-1. I already have a portfolio so I built a .NET website for my domain, deliciousdrinkreviews.com. Will still meet requirements with minor tweaking.
-2. Profile picture on about page, not landing page.
+1. I already have a portfolio so I built a .NET website for my domain, deliciousdrinkreviews.com. Still meet requirements with minor tweaking.
+2. Profile picture on about page, not landing page. This is a personal design choice.
 3. Per discussion with teacher, ajax method does not have to relate to CRUD for posts or comments, just need to demonstrate basic understanding.
-
-## Specs
-
-| Behavior  |  Input | Output  |
-|---|---|---|
-|  |   |  |
-|  |   |  |
-|  |   |  |
 
 
 
@@ -31,9 +23,9 @@ _Stuff._
 
 1. _Clone [Delicious Drink Reviews](https://github.com/emilyjimenez/DOTNET-DDR-DeliciousDrinkReviews) from Github in the terminal of your choice._
 
-2. _Navigate to the solution folder in your prefered terminal and run the commands `dotnet restore`, `dotnet build`, and then `dotnet run`._
+2. _Navigate to the solution folder in your prefered terminal and run the commands `dotnet restore`, `dotnet build`, and then `dotnet ef database update`._
 
-3. _After running dotnet run, the application should appear in your browser. To look at source code, open up the solution folder in your preferred text editor._
+3. _Now enter `dotnet run` into your terminal! After running dotnet run, the application should appear in your browser. To look at source code, open up the solution folder in your preferred text editor._
 
 ## Known Bugs
 
@@ -42,8 +34,10 @@ _NA_
 ## Technologies Used
 
 * Microsoft Visual Studio 2017 for Mac
+* JQuery
 * .Net Core 1.1
 * Google Chrome
+* Adobe Typekit
 
 ### License
 
