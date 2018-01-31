@@ -7,6 +7,7 @@
 }
 
 <h1>Delicious Drink Reviews</h1>
+
 <h4><i>When the thirst is real...</i></h4>
 
 <h2>@Html.ActionLink("Blog", "Index", "Blog")</h2>
@@ -16,4 +17,23 @@
 <h2>@Html.ActionLink("Become a Sponsor", "Index", "Sponsor")</h2>
 
 <h2>@Html.ActionLink("GitHub Details", "Index", "Github")</h2>
-   
+
+<div class="pour-drink">
+<h2><a href="#">Pour Me a Drink!</a></h2>
+    <div id="result-drink"></div>
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.pour-drink').click(function () {
+    $.ajax({
+      type: 'GET',
+      dataType: 'html',
+      url: '@Url.Action("PourDrink")',
+      success: function (result) {
+        $('#result-drink').html(result);
+      }
+    });
+  });
+});
+</script>

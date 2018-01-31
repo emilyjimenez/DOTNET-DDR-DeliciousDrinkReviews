@@ -14,5 +14,10 @@ namespace DDR.Controllers
         {
             return View();
         }
+
+        public IActionResult PourDrink()
+        {
+            return View();
+        }
     }
 }

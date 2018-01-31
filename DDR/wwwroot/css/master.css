@@ -19,13 +19,15 @@ body {
 
 a {
     color: #51a558;
-    text-decoration: none
+    text-decoration: none;
+     text-shadow: 0 0 1px #000000;
+
 }
 
-a:hover {
+    a:hover {
         color: white;
         text-decoration: underline;
-}
+    }
 
 h1 {
     font-family: acier-bat-noir, sans-serif;
@@ -56,4 +58,3 @@ h2, h3 {
     width: 50%;
 
 }
-
