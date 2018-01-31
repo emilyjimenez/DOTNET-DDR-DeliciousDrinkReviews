@@ -17,6 +17,8 @@
     <Folder Include="Views\Blog\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="ViewModels\" />
+    <Folder Include="Views\Sponsor\" />
+    <Folder Include="Views\Github\" />
   </ItemGroup>
 
   <ItemGroup>

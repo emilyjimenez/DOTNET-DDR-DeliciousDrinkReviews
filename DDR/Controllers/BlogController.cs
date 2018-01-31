@@ -119,7 +119,7 @@ namespace DDR.Controllers
             _db.Comments.Remove(thisComment);
             _db.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Blog", new { id = thisComment.PostId });
         }
     }
 }

@@ -17,6 +17,16 @@ body {
 
 }
 
+a {
+    color: #51a558;
+    text-decoration: none
+}
+
+a:hover {
+        color: white;
+        text-decoration: underline;
+}
+
 h1 {
     font-family: acier-bat-noir, sans-serif;
     font-style: normal;
@@ -35,3 +45,15 @@ h2, h3 {
     margin-left: 90%
 
 }
+
+.login p {
+    font-weight: bold;
+}
+
+.profile-pic img {
+    margin-left: 25%;
+    height: 50%;
+    width: 50%;
+
+}
+
