@@ -1,8 +1,23 @@
-﻿@{
+﻿@model IEnumerable<DDR.Models.ProjectDeets>
+
+@{
 
     ViewData["Title"] = "Home";
     Layout = "_Layout";
 
 }
 
-<p>Github deets here</p>
+
+<h1>Github Details</h1>
+<p>This isnt technically a part of the DDR website but was a requirement issued out by my school's independent coding project. Shows that I can run APIs in .NET!</p>
+
+@foreach (var proj in Model)
+{
+    <ul>
+        
+         <a href="@proj.html_url"><li>@Html.DisplayFor(m => @proj.name)</li></a>
+        <li>@Html.DisplayFor(m => @proj.description)</li>
+        <li>@Html.DisplayFor(m => @proj.created_at)</li>
+    </ul>
+}
+

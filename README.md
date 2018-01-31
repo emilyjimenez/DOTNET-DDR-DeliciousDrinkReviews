@@ -11,7 +11,11 @@
 
 _Stuff._
 
+## Notes for Epicodus Staff on Requirements
 
+1. I already have a portfolio so I built a .NET website for my domain, deliciousdrinkreviews.com. Will still meet requirements with minor tweaking.
+2. Profile picture on about page, not landing page.
+3. Per discussion with teacher, ajax method does not have to relate to CRUD for posts or comments, just need to demonstrate basic understanding.
 
 ## Specs
 

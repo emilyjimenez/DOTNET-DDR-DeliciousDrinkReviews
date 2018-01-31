@@ -10,27 +10,35 @@ using Newtonsoft.Json.Linq;
 
 namespace DDR.Models
 {
-    public class Project
+    public class Owner
     {
+        public string login { get; set; }
+        public int id { get; set; }
+        public string avatar_url { get; set; }
+        public string gravatar_id { get; set; }
+        public string url { get; set; }
+        public string html_url { get; set; }
+        public string followers_url { get; set; }
+        public string following_url { get; set; }
+        public string gists_url { get; set; }
+        public string starred_url { get; set; }
+        public string subscriptions_url { get; set; }
+        public string organizations_url { get; set; }
+        public string repos_url { get; set; }
+        public string events_url { get; set; }
+        public string received_events_url { get; set; }
+        public string type { get; set; }
+        public bool site_admin { get; set; }
+    }
 
-        public static async Task<List<Project>> GetProjects()
-        {
-            var client = new RestClient("https://api.github.com");
-
-            var request = new RestRequest("users/emilyjimenez/starred", Method.GET);
-            request.AddHeader("User-Agent", "emilyjimenez");
-            request.AddParameter("direction", "asc");
-
-            var response = new RestResponse()
-                Task.Run(async () =>
-            {
-                response = await GetResponseContentAsync(client, request) as RestResponse;
-            }).Wait();
-
-            JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(response.Content);
-                        
-                        
-                        )
-        }
+    public class ProjectDeets
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string html_url { get; set; }
+        public string description { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy/MM/dd}")]
+        public DateTime created_at { get; set; }
+       
     }
 }
